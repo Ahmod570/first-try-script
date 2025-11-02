@@ -1,31 +1,80 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+    <title> SIGN UP</title>
+    <link rel="icon" href="./pngegg (5).png">
+    <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link  href="./tailwind.config.js">
+</head>
+
 <body>
-    <div class="flex flex-col gap-4 items-center p-2 justify-center m-auto h-screen placeholder:ENTRE YOUR NAME " >
-        <input id="name" type="text" placeholder="ENTER YOUR NAME "  class="border-2 border-red-600 ">
-        <button  onclick={inputValue()} class="bg-black text-white px-2 py-2 font-bold cursor-pointer ">submit</button>
+        <div class="w-100  bg-[#c4bbbb] m-auto p-5">
+            <h1 class="font-bold text-3xl py-5 text-red-600">Sign Up</h1>
+            <div class="flex flex-col mt-4 ">
+                <label class="font-semibo text-xl ">Name</label>
+                <input id="nameInput" type="text" placeholder="Enter your text" class="p-x-1 py-2 border rounded-md placeholder:px-2">
+            </div>
+            <div class="flex flex-col mt-4">
+                <label class="font-semibold text-xl text-light">Email</label>
+                <input id="emailInput" type="email" placeholder="Enter your email"
+                    class="p-x-1 py-2 border rounded-md placeholder:px-2">
+            </div>
+            <div class="flex flex-col mt-4">
+                <label class="font-semibold text-xl text-light">Password</label>
+                <input id="passwordInput" type="password" placeholder="Enter password"
+                    class="p-x-1 py-2 border rounded-md placeholder:px-2">
+                <p class="text-md font-medium">The password must have at least 6 characters with a letter, a number, and
+                    a special character.</p>
+            </div>
+
+            <button onclick="{storeData()}" class="py-2 rounded-md text-white font-semibold cursor-pointer mt-4 px-3 bg-red-700 ">Sign
+                Up</button>
+            <input type="reset" onclick="{reset()}" id="reset" class="border px-3 cursor-pointer text-white  items-center bg-[#523a3a] py-2 rounded-md hidden">
 
 
-        <h2 id="nameDisplay">                      </h2>
-    </div>
-    <script>
-        function inputValue () {
-            let saveName =document.getElementById("name")?.value 
-            console.log(saveName);
-            if (!saveName){
-                alert("Input name first")
-            }
-                     document.getElementById("nameDisplay").innerHTML=`<p>${saveName}</p>`;
+<div id="details" class="text-center font-poppins"></div>
 
-        }
-    </script>
+        <div/>
+    </section> 
+   
 </body>
+<script>
+    
+    function  storeData (){
+        let name = document.getElementById("nameInput")?.value
+        let email = document.getElementById("emailInput")?.value
+        let password = document.getElementById("passwordInput")?.value
+        
+        
+        console.log(name,email,password);
+ 
+
+if ((!name,  !email, !password)){
+    alert("fullfill please");}
+
+    if ((name, email, password )){
+        document.getElementById("details").innerHTML = `
+        <p>Here is your data</p>
+        <p>Here:${name}</p>
+        <p>Email:${email}</p>
+        <p>Password:${password}</p>
+        `
+        
+    
+    document.getElementById("reset").style.display = "flex";
+    }
+    
+}
+
+    function reset() {
+      document.getElementById("details").innerText = "";
+      document.getElementById("reset").style.display = "";
+    }
+
+    
+</script>
+
 </html>
